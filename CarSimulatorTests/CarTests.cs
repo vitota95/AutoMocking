@@ -19,7 +19,7 @@ namespace CarSimulatorTests
         private readonly IUnityContainer container = new UnityContainer().WithAutoMocking();
 
         [TestMethod]
-        public void AutoDrive_WhenGpsTraceRouteToDestinationReturnsFalse_ReturnsFalse_OldManner()
+        public void AutoDrive_WhenGpsCanDriveToDestinationReturnsFalse_ReturnsFalse_OldManner()
         {
             //Arrange
             var engineMock = new Mock<IEngine>();
@@ -35,7 +35,7 @@ namespace CarSimulatorTests
         }
 
         [TestMethod]
-        public void AutoDrive_WhenGpsTraceRouteToDestinationReturnsFalse_ReturnsFalse()
+        public void AutoDrive_WhenGpsCanDriveToDestinationReturnsFalse_ReturnsFalse()
         {
             //Arrange
             var gpsMock = this.container.RegisterMock<IGps>();

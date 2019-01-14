@@ -19,10 +19,11 @@ namespace Roche.LabCore.Utilities.UnitTesting
         /// </summary>
         /// <typeparam name="T"> The type that we are mocking. </typeparam>
         /// <param name="container"> The <see cref="IUnityContainer"/> </param>
+        /// <param name="mockBehavior"> Optional mock behavior, by default loose</param>
         /// <returns> The registered mock. </returns>
-        public static Mock<T> RegisterMock<T>(this IUnityContainer container) where T : class
+        public static Mock<T> RegisterMock<T>(this IUnityContainer container, MockBehavior mockBehavior = MockBehavior.Loose) where T : class
         {
-            var mock = new Mock<T>();
+            var mock = new Mock<T>(mockBehavior);
 
             container.RegisterInstance<Mock<T>>(mock);
             container.RegisterInstance<T>(mock.Object);
